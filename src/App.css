@@ -6,30 +6,35 @@
 
 /* HEADER */
 .home-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 40px 60px;
-}
+  height: 86px;
+  padding: 0 60px;
 
-/* NOMBRE */
-.home-header h1 {
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+
+  z-index: 10;
 }
 
 /* NAV */
 .home-nav {
   display: flex;
-  gap: 28px;
+  gap: 34px;
 }
 
 .home-nav a {
   text-decoration: none;
   color: #111111;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  font-size: 16px;
+  letter-spacing: 1px;
   transition: opacity 0.2s ease;
 }
 
@@ -37,22 +42,55 @@
   opacity: 0.5;
 }
 
-/* INTRO */
-.home-intro {
-  margin-top: 40px;
-}
-
-/* IMAGEN (protagonista) */
-.home-image {
+/* HERO */
+.hero {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* TEXTO */
-.home-intro p {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 16px;
-  color: #666666;
+/* OVERLAY */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
 }
+
+/* IMAGEN */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+
+  position: relative;
+  z-index: 0;
+}
+
+/* FIRMA */
+
+.hero-signature {
+  position: absolute;
+  bottom: 45px;
+  right: 70px;
+
+  width: 200px;
+  z-index: 3;
+  opacity: 1;
+
+  filter: brightness(0) contrast(180%);
+
+  clip-path: inset(0 100% 0 0);
+  animation: escribirFirma 2.5s ease forwards;
+}
+
+@keyframes escribirFirma {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+

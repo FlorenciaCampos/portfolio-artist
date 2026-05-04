@@ -1,12 +1,12 @@
 import "./App.css"
 import obra from "./assets/obra.jpg"
+import firma from "./assets/firma.png"
+import Footer from "./footer/Footer"
 
 function App() {
   return (
     <main className="home">
       <header className="home-header">
-        <h1>Florencia Campos</h1>
-
         <nav className="home-nav">
           <a href="#">Obras</a>
           <a href="#">Sobre mí</a>
@@ -15,12 +15,16 @@ function App() {
         </nav>
       </header>
 
-      <section className="home-intro">
-  <img src={obra} alt="Obra" className="home-image" />
-  <p>Artista visual</p>
-</section>
+      <section className="hero">
+        <img src={obra} alt="Obra de Florencia Campos" className="hero-image" />
+        <img src={firma} alt="Firma Florencia Campos" className="hero-signature" />
+      </section>
+
+      <Footer />
     </main>
   )
 }
+
+
 
 export default App
